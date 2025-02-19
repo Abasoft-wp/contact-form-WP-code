@@ -1,0 +1,42 @@
+
+// Add the PDF Certificate field to the user profile
+function add_pdf_certificate_field($user) {
+    ?>
+    <h3>PDF Certificate</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="pdf_certificate">Upload Certificate</label></th>
+            <td>
+                <input type="file" name="pdf_certificate" id="pdf_certificate" accept="application/pdf"><br>
+                <?php if ($pdf_url = get_user_meta($user->ID, 'pdf_certificate', true)): ?>
+                    <a href="<?php echo esc_url($pdf_url); ?>" target="_blank">View Current Certificate</a>
+                <?php endif; ?>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+add_action('show_user_profile', 'add_pdf_certificate_field');
+add_action('edit_user_profile', 'add_pdf_certificate_field');
+
+// Save the uploaded PDF certificate
+function save_pdf_certificate_field($user_id) {
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+
+    if (isset($_FILES['pdf_certificate']) && !empty($_FILES['pdf_certificate']['name'])) {
+        // Validate file type
+        $file_type = wp_check_filetype($_FILES['pdf_certificate']['name']);
+        if ($file_type['ext'] === 'pdf') {
+            // Upload the file
+            $upload = wp_handle_upload($_FILES['pdf_certificate'], ['test_form' => false]);
+            if (isset($upload['file'])) {
+                // Save the file URL in user meta
+                update_user_meta($user_id, 'pdf_certificate', $upload['url']);
+            }
+        }
+    }
+}
+add_action('personal_options_update', 'save_pdf_certificate_field');
+add_action('edit_user_profile_update', 'save_pdf_certificate_field');
