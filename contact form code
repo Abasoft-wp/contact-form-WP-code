@@ -1,0 +1,123 @@
+
+// Function to display the contact form
+function custom_contact_form() {
+    ob_start(); ?>
+
+    <form id="customContactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Type your message" required></textarea>
+
+        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('custom_contact_form_nonce'); ?>">
+        <input type="hidden" name="action" value="send_contact_email">
+
+        <button type="submit">Send Message</button>
+        <div id="formResponse"></div>
+    </form>
+
+    <script>
+        document.querySelector("#customContactForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+
+            let response = await fetch("<?php echo admin_url('admin-ajax.php'); ?>", {
+                method: "POST",
+                body: formData
+            });
+
+            let result = await response.json();
+            document.querySelector("#formResponse").innerHTML = result.message;
+        });
+    </script>
+
+    <style>
+        form#customContactForm {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        form#customContactForm label {
+            display: block;
+            margin-top: 10px;
+        }
+        form#customContactForm input, form#customContactForm textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        form#customContactForm button {
+            margin-top: 10px;
+            background: #0073aa;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #formResponse {
+            margin-top: 10px;
+        }
+    </style>
+
+    <?php return ob_get_clean();
+}
+add_shortcode('custom_contact_form', 'custom_contact_form');
+
+// Function to process form submission
+function process_custom_contact_form() {
+    // Verify nonce for security
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'custom_contact_form_nonce')) {
+        wp_send_json(['status' => 'error', 'message' => 'Security check failed.']);
+        wp_die();
+    }
+
+    // Sanitize input
+    $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_email($_POST['email']);
+    $subject = sanitize_text_field($_POST['subject']);
+    $message = sanitize_textarea_field($_POST['message']);
+
+    // Validate fields
+    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+        wp_send_json(['status' => 'error', 'message' => 'All fields are required.']);
+        wp_die();
+    }
+
+    if (!is_email($email)) {
+        wp_send_json(['status' => 'error', 'message' => 'Invalid email address.']);
+        wp_die();
+    }
+
+    // Send email
+    $admin_email = get_bloginfo('admin_email'); // Sends to the site admin
+    $headers = [
+        'From: ' . $name . ' <' . $email . '>',
+        'Reply-To: ' . $email,
+        'Content-Type: text/plain; charset=UTF-8'
+    ];
+    $email_subject = "New Contact Form Message: " . $subject;
+    $email_body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+    if (wp_mail($admin_email, $email_subject, $email_body, $headers)) {
+        wp_send_json(['status' => 'success', 'message' => 'Message sent successfully!']);
+    } else {
+        wp_send_json(['status' => 'error', 'message' => 'Failed to send email. Please try again later.']);
+    }
+
+    wp_die();
+}
+
+// Register AJAX actions
+add_action('wp_ajax_send_contact_email', 'process_custom_contact_form'); // For logged-in users
+add_action('wp_ajax_nopriv_send_contact_email', 'process_custom_contact_form'); // For non-logged-in users
