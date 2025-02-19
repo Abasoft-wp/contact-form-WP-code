@@ -1,0 +1,125 @@
+// send custorm form code
+		function custom_email_form() {
+			ob_start(); ?>
+
+				<form id="customEmailForm">
+				<label for="subject">Subject</label>
+				<select id="subject" name="subject">
+					<option value="Please Select....">Please Select....</option>
+					<option value="NNNGO Membership Registration Approved">NNNGO Membership Registration Approved</option>
+                    <option value="NNNGO Membership Registration Declined">NNNGO Membership Registration Declined</option>
+                </select>
+				
+<!-- 				<input type="text" id="subject" name="subject" placeholder="Enter subject" required> -->
+
+				<label for="recipient_email">Member Email:</label>
+				<input type="email" id="recipient_email" name="recipient_email" placeholder="Enter member email" required>
+
+				<label for="message">Message:</label>
+				<textarea id="message" name="message" placeholder="Type your message" required></textarea>
+
+				<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('custom_email_form_nonce'); ?>">
+				<input type="hidden" name="action" value="send_custom_email">
+
+				<button type="submit">Send Email</button>
+				<div id="formResponse"></div>
+			</form>
+
+			<script>
+				document.querySelector("#customEmailForm").addEventListener("submit", async function(event) {
+					event.preventDefault();
+					let formData = new FormData(this);
+
+					let response = await fetch("<?php echo admin_url('admin-ajax.php'); ?>", {
+						method: "POST",
+						body: formData
+					});
+
+					let result = await response.json();
+					document.querySelector("#formResponse").innerHTML = result.message;
+				});
+			</script>
+
+			<style>
+				form#customEmailForm {
+					max-width: 400px;
+					padding: 20px;
+					border: 1px solid #ddd;
+					border-radius: 5px;
+					background-color: #f9f9f9;
+				}
+				form#customEmailForm label {
+					display: block;
+					margin-top: 10px;
+				}
+				form#customEmailForm input, form#customEmailForm textarea {
+					width: 100%;
+					padding: 8px;
+					margin-top: 5px;
+					border: 1px solid #ccc;
+					border-radius: 3px;
+				}
+				form#customEmailForm button {
+					margin-top: 10px;
+					background: #0073aa;
+					color: white;
+					border: none;
+					padding: 10px;
+					cursor: pointer;
+				}
+				#formResponse {
+					margin-top: 10px;
+				}
+			</style>
+
+			<?php return ob_get_clean();
+		}
+		add_shortcode('custom_email_form', 'custom_email_form');
+
+
+	function process_custom_email_form() {
+    // Security check
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'custom_email_form_nonce')) {
+        wp_send_json(['status' => 'error', 'message' => 'Security check failed.']);
+        wp_die();
+    }
+
+    // Sanitize input
+    $subject = sanitize_text_field($_POST['subject']);
+    $recipient_email = sanitize_email($_POST['recipient_email']);
+    $message = sanitize_textarea_field($_POST['message']);
+
+    // Validate required fields
+    if (empty($recipient_email) || empty($message)  || empty($subject)) {
+        wp_send_json(['status' => 'error', 'message' => 'All fields are required.']);
+        wp_die();
+    }
+
+    // Validate email
+    if (!is_email($recipient_email)) {
+        wp_send_json(['status' => 'error', 'message' => 'Invalid email address.']);
+        wp_die();
+    }
+
+    // Set sender email
+    $admin_email = get_bloginfo('admin_email'); // Use website's admin email
+    //$subject = sanitize_text_field($_POST['subject']);
+    $headers = array(
+        'From: Website Contact <' . $admin_email . '>',
+        'Reply-To: ' . $admin_email,
+        'Content-Type: text/plain; charset=UTF-8'
+    );
+
+    // Send email
+    if (wp_mail($recipient_email, $subject, $message, $headers)) {
+        wp_send_json(['status' => 'success', 'message' => 'Message sent successfully!']);
+    } else {
+        wp_send_json(['status' => 'error', 'message' => 'Failed to send email. Please try again later.']);
+    }
+
+    wp_die();
+}
+
+// Register AJAX actions for both logged-in and guest users
+add_action('wp_ajax_send_custom_email', 'process_custom_email_form');
+add_action('wp_ajax_nopriv_send_custom_email', 'process_custom_email_form');
