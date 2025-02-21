@@ -1,0 +1,696 @@
+<?php
+    /**
+     * Template Name: sign-up-form
+     *
+     *
+     */
+     
+
+
+    get_header();
+   
+    ?>
+     
+     <form name="regform" action="" method="post" style="dpadding-top:200px;">
+		
+			<fieldset>
+                    <legend><h2>Welcome!</h2></legend>
+	
+                <b>Dear Prospective Member,</b> 
+                
+                <ul>
+                    <li>Kindly provide relevant information as accurately as possible.</li>
+                    <li>We advise that you use the organisation's contacts (email, office address and phone number) when filling this form. </li>
+                     <li>Cross-check all details filled before submitting.</li>
+                </ul> 
+                <p>Kindly contact nnngo@nnngo.org or timothy@nnngo.org or call 09069460107 if you need help filling this form.</p> 
+			
+			
+				<label>Select a Membership Category</label>
+				
+				<select name="categ" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="Ordinary Membership (NGN 15,000)">Ordinary Membership (NGN 15,000) - An annual renewal of (NGN 10,000)</option>
+                    <option value="Standard Membership (NGN 100,000.00)">Standard Membership (NGN 100,000.00)</option>
+                    <option value="Premium Membership (NGN 250,000.00)">Premium Membership (NGN 250,000.00)</option>
+                    <option value="Premium-Pro Membership (NGN 500,000.00)">Premium-Pro Membership (NGN 500,000.00)</option>
+                    <option value="Corporate Membership (NGN 2,000,000.00)">Corporate Membership (NGN 2,000,000.00)</option>
+                </select>
+				
+			    <!--<label><input type="radio" name="categ" value="Ordinary Membership (NGN 15,000)" required >Ordinary Membership (NGN 15,000) - An annual renewal of (NGN 10,000)</label>-->
+                
+       <!--         <label><input type="radio" name="categ" value="Standard Membership (NGN 50,000.00)" required >Standard Membership (NGN 50,000.00)</label>-->
+                
+       <!--         <label><input type="radio" name="categ" value="Premium Membership (NGN 100,000.00)" required >Premium Membership (NGN 100,000.00)</label>-->
+                
+       <!--         <label><input type="radio" name="categ" value="Sustained Membership (NGN 250,000.00)" required >Sustained Membership (NGN 250,000.00)</label>-->
+                
+       <!--         <label><input type="radio" name="categ" value="Sponsor (NGN 500,000.00)" required >Sponsor (NGN 500,000.00)</label>-->
+                
+       <!--         <label><input type="radio" name="categ" value="Corporate Affiliate (NGN 1,000,000.00)" required >Corporate Affiliate (NGN 1,000,000.00)</label>-->
+                
+       <!--         <label><input type="radio" name="categ" value="Enhanced Corporate (NGN 2,000,000.00)" required >Enhanced Corporate (NGN 2,000,000.00)</label>-->
+                
+               </fieldset> 
+               
+			    <fieldset>
+                    <legend><h2>ORGANISATION DETAILS</h2></legend>
+                    
+				<label>Name of Organisation</label>
+				<input type="text" name="name_org" id="name_org" required  >
+			<br>
+			
+				<label>Acronym</label>
+				<input type="text" name="acronym" id="acronym" required >
+			<br>
+				
+				<label>Organisation Email</label>
+				<input type="email" name="org_email" id="org_email" required >
+			<br>
+			
+			
+				<label>Organisation Phone Number</label>
+				<input type="text" name="org_p_number" id="org_p_number" required >
+			<br>
+				
+				<label>Preferred WhatsApp number to be added to the membership WhatsApp group.</label>
+				
+				<i>Please provide the WhatsApp number of the organisation's focal person. As a benefit 
+				of being a paid member in the closed group, you'll have access to training opportunities, 
+				grant offers, and other important information shared within the group.</i>
+				<input type="text" name="whatsapp_number" id="whatsapp-number" required>
+			<br>
+			
+			<label>Name of Executive Director</label>
+				<input type="text" name="name_of_ED" id="name-of_ED" required >
+			<br>
+				
+				<label>Executive Director's Email </label>
+				<input type="email" name="ED_email" id="ED-email" required >
+			<br>
+			
+				<label>Executive Director's Phone Number</label>
+				<input type="text" name="ED_p_number" id="ED-p-number" required>
+			<br>
+				
+				<label>Office Address</label>
+				<input type="text" name="office_address" id="office-address" required>
+			<br>
+			
+			<label>City </label>
+				<input type="text" name="city" id="city" required >
+			<br>
+				
+				<label>State</label>
+				<input type="text" name="state" id="state" required >
+			<br>
+			
+				<label>Geo-Political Zone</label>
+                <select name="geo_p_zone" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="North Central">North Central</option>
+                    <option value="North West">North West</option>
+                    <option value="North East">North East</option>
+                    <option value="South South">South South</option>
+                    <option value="South West">South West</option>
+                    <option value="South East">South East</option>
+                </select>
+				<!--<label><input type="radio" value="North Central" name="geo_p_zone">North Central</label>-->
+                
+    <!--            <label><input type="radio" value="North West" name="geo_p_zone">North West</label>-->
+                
+    <!--            <label><input type="radio" value="North East" name="geo_p_zone">North East</label>-->
+                
+    <!--            <label><input type="radio" value="South South" name="geo_p_zone">South South</label>-->
+                
+    <!--            <label><input type="radio" value="South West" name="geo_p_zone">South West</label>-->
+                
+    <!--            <label><input type="radio" value="South East" name="geo_p_zone">South East</label>-->
+                 
+				
+			<br><br>
+			
+				<label>Year of Establishment</label>
+				<input type="text" name="year_of_est" id="year-of-est" required >
+			<br>
+				
+				<label for="user_login">Short description of the work of your organisation (Maximum 500 words)</label>
+				<input type="text" name="short_desc_org" id="short-desc-org" required>
+				
+			<br>
+			
+				<label>Which of these are you registered with? </label>
+				<p>You may select more than one</p>
+				
+				<div class="checkbox-container" <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                    <label><input type="checkbox" name="registered_with[]" value="CAC"> CAC</label>
+                    <label><input type="checkbox" name="registered_with[]" value="SCUML"> SCUML</label>
+                    <label><input type="checkbox" name="registered_with[]" value="State Government"> State Government</label>
+                    <label><input type="checkbox" name="registered_with[]" value="FIRS"> FIRS</label>
+                    <label><input type="checkbox" name="registered_with[]" value="Ministry of Women Affairs"> Ministry of Women Affairs</label>
+                    <label><input type="checkbox" name="registered_with[]" value="Ministry of Youths and Sports"> Ministry of Youths and Sports</label>
+                    <label><input type="checkbox" name="registered_with[]" value="Ministry of Health"> Ministry of Health</label>
+                    <label><input type="checkbox" onclick="javascript: toggle_section(this, 'other-register');"> Others</label>
+                </div>
+			<br>
+				
+				<div id="other-register" style="display:none;">
+				<label>If you clicked "Others" above please specify</label>
+				<input type="text" name="registered_with[]" id="others-reg-with">
+				</div>
+			<br>
+			
+				<label>If registered with CAC, kindly provide your date of incorporation.</label>
+				<input type="date" name="CAC_date_of_incorp" id="CAC-date-of-incorp" required >
+			<br>
+				
+				<label>What year did you last file your annual returns?</label>
+				<p>* Note that annual returns are filed by CSOs 18 months after registration with CAC</p>
+				<input type="text" name="year_annual_returns" id="year-annual-returns" required>
+				
+			<br>
+			
+				<label>What is the organisation's annual budget?</label>
+				
+				<select name="orgs_annual_budget" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="Less than N500,000">Less than N500,000</option>
+                    <option value="N500,000 - N1,000,000">N500,000 - N1,000,000</option>
+                    <option value="N1,000,001 - N2,000,000">N1,000,001 - N2,000,000</option>
+                    <option value="N2,000,001 - N5,000,000">N2,000,001 - N5,000,000</option>
+                    <option value="N5,000,000 and above">N5,000,000 and above</option>
+                </select>
+			
+				<br>
+				<!--<label><input type="radio" name="orgs_annual_budget" value="Less than N500,000" required >Less than N500,000</label>-->
+                
+    <!--            <label><input type="radio" name="orgs_annual_budget" value="N500,000 - N1,000,000" required >N500,000 - N1,000,000</label>-->
+                
+    <!--            <label><input type="radio" name="orgs_annual_budget" value="N1,000,001 - N2,000,000" required >N1,000,001 - N2,000,000</label>-->
+                
+    <!--            <label><input type="radio" name="orgs_annual_budget" value="N2,000,001- N5,000,000" required >N2,000,001- N5,000,000</label>-->
+                
+    <!--            <label><input type="radio" name="orgs_annual_budget" value="N5,000,000 and above" required >N5,000,000 and above</label>-->
+                
+			<br>
+				
+				<label>Website/Facebook Page URL </label>
+				<input type="text" name="website_facebook_url" id="website-facebook-url">
+				
+			<br>
+			
+				<label>Which of these best describes your organisation? </label>
+				<p>You may select multiple options</p>
+				<div class="checkbox-container" style="display: flex; flex-wrap: wrap; gap: 30px;">
+                    <label><input type="checkbox" name="org_best_desc[]" value="Self-funded"> Self-funded</label>
+                    <label><input type="checkbox" name="org_best_desc[]" value="Foundation"> Foundation</label>
+                    <label><input type="checkbox" name="org_best_desc[]" value="Single donor"> Donor-Funded - (Single donor)</label>
+                    <label><input type="checkbox" name="org_best_desc[]" value="Family and Friends"> Family and Friends (Family and Friends)</label>
+                    <label><input type="checkbox" name="org_best_desc[]" value="International Donors"> Donor-Funded (International Donors)</label>
+                    <label><input type="checkbox" name="org_best_desc[]" value="Local Donors"> Donor Funded (Local Donors)</label>
+                </div>
+				
+			<br>
+				
+				<label>Does the organisation have a Board of Trustees?</label>
+				<select name="org_board_of_trust" required>
+				    <option value="" disabled selected>Please select...</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+				</select><br>
+				
+			<br>
+			
+				<label>How well is the organisation's board of trustees functioning? </label>
+				
+				<select name="org_board_of_trust_funct" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="Well">Well</option>
+                    <option value="Extremely well">Extremely well</option>
+                    <option value="Undecided">Undecided</option>
+                    <option value="Not well">Not well</option>
+                    <option value="Nonexistent">Nonexistent</option>
+                </select>
+				
+			<!--	<label><input type="radio" name="org_board_of_trust_funct" value="Well" required >Well</label>-->
+   <!--             <label><input type="radio" name="org_board_of_trust_funct" value="Extremely well" required>Extremely well</label>-->
+   <!--             <label><input type="radio" name="org_board_of_trust_funct" value="Undecided" required >Undecided</label>-->
+   <!--             <label><input type="radio" name="org_board_of_trust_funct" value="Not well" required >Not well</label>-->
+   <!--             <label><input type="radio" name="org_board_of_trust_funct" value="Nonexistent" required >Nonexistent</label>-->
+				
+				
+			<!--<br>-->
+				<br><br>
+				<label>Who are the beneficiaries of your organisation? </label>
+				<p>You may select more than one</p>
+				<div class="checkbox-container" style="display: flex; flex-wrap: wrap; gap: 30px;">
+                    <label><input type="checkbox" name="bene_org[]" value="Children"> Children</label>
+                    <label><input type="checkbox" name="bene_org[]" value="PLWD/Special Needs"> People Living with Disabilities/Special Needs</label>
+                    <label><input type="checkbox" name="bene_org[]" value="General Public"> General Public</label>
+                    <label><input type="checkbox" name="bene_org[]" value="Women"> Women</label>
+                    <label><input type="checkbox" name="bene_org[]" value="CSO/NGO/FBO/CBO/BMO"> CSO/NGO/FBO/CBO/BMO</label>
+                    <label><input type="checkbox" name="bene_org[]" value="Youths"> Youths</label>
+                    <label><input type="checkbox" name="bene_org[]" value="Widows"> Widows</label>
+                    <label><input type="checkbox" name="bene_org[]" value="Men"> Men</label>
+                    <label><input type="checkbox" name="bene_org[]" value="The Elderly"> The Elderly</label>
+                    <label><input type="checkbox" onclick="toggle_section(this, 'other-bene');"> Other</label>
+                </div>
+				<br>
+				<div  id="other-bene" style="display:none;">
+				<label>If you selected "Other" above, please specify </label>
+				<input type="text" name="bene_org[]" id="bene-org-other-reason">
+				</div>
+			
+			   <br>
+				<label>Organisation's Thematic Area</label>
+				<div class="checkbox-container" style="display: flex; flex-wrap: wrap; gap: 30px;">
+                        <label for="thematic-Advocacy"><input type="checkbox" id="thematic-Advocacy" name="thematic[]" value="Advocacy"> Advocacy</label>
+                        <label for="thematic-Counsel"><input type="checkbox" id="thematic-Counsel" name="thematic[]" value="Counseling"> Counseling</label>
+                        <label for="thematic-researchbased"><input type="checkbox" id="thematic-researchbased" name="thematic[]" value="Research based"> Research based</label>
+                        <label for="thematic-Network"><input type="checkbox" id="thematic-Network" name="thematic[]" value="Network/Coalition/Association"> Network/Coalition/Association</label>
+                        <label for="thematic-Foundtn"><input type="checkbox" id="thematic-Foundtn" name="thematic[]" value="Foundation"> Foundation</label>
+                        <label for="thematic-ServiceDev"><input type="checkbox" id="thematic-ServiceDev" name="thematic[]" value="Service delivery"> Service delivery</label>
+                        <label for="thematic-GrantMak"><input type="checkbox" id="thematic-GrantMak" name="thematic[]" value="Grant making (incl. loans)"> Grant making (incl. loans)</label>
+                        <label for="thematic-Edu"><input type="checkbox" id="thematic-Edu" name="thematic[]" value="Education"> Education</label>
+                        <label for="thematic-Disable"><input type="checkbox" id="thematic-Disable" name="thematic[]" value="Disability"> Disability</label>
+                        <label for="thematic-Poverty"><input type="checkbox" id="thematic-Poverty" name="thematic[]" value="Poverty"> Poverty</label>
+                        <label for="thematic-Health"><input type="checkbox" id="thematic-Health" name="thematic[]" value="Health"> Health (Incl. HIV/AIDS, Malaria, etc.)</label>
+                        <label for="thematic-Eco"><input type="checkbox" id="thematic-Eco" name="thematic[]" value="Economic/Community Development"> Economic/Community Development</label>
+                        <label for="thematic-Democracy"><input type="checkbox" id="thematic-Democracy" name="thematic[]" value="Democracy and Good Governance"> Democracy and Good Governance</label>
+                        <label for="thematic-Training"><input type="checkbox" id="thematic-Training" name="thematic[]" value="Training"> Training</label>
+                        <label for="thematic-Microfin"><input type="checkbox" id="thematic-Microfin" name="thematic[]" value="Microfinance"> Microfinance</label>
+                        <label for="thematic-Reforms"><input type="checkbox" id="thematic-Reforms" name="thematic[]" value="Reforms"> Reforms (Incl. Intl Institutions reforms)</label>
+                        <label for="thematic-Youth"><input type="checkbox" id="thematic-Youth" name="thematic[]" value="Youth and Youth Development"> Youth and Youth Development</label>
+                        <label for="thematic-Peace"><input type="checkbox" id="thematic-Peace" name="thematic[]" value="Peace and Conflict Resolution"> Peace and Conflict Resolution</label>
+                        <label for="thematic-ICT"><input type="checkbox" id="thematic-ICT" name="thematic[]" value="ICT"> Information Communication Technology (ICT)</label>
+                        <label for="thematic-Trade"><input type="checkbox" id="thematic-Trade" name="thematic[]" value="Trade"> Trade</label>
+                        <label for="thematic-C4D"><input type="checkbox" id="thematic-C4D" name="thematic[]" value="Communications for Development"> Communications for Development (C4D)</label>
+                        <label for="thematic-gender"><input type="checkbox" id="thematic-gender" name="thematic[]" value="Gender & Social Inclusion"> Gender and Social Inclusion</label>
+                        <label for="thematic-Research"><input type="checkbox" id="thematic-Research" name="thematic[]" value="Research and Development"> Research and Development</label>
+                        <label for="thematic-Water"><input type="checkbox" id="thematic-Water" name="thematic[]" value="Water and Sanitation"> Water and Sanitation</label>
+                        <label for="thematic-Migration"><input type="checkbox" id="thematic-Migration" name="thematic[]" value="Migration"> Migration</label>
+                        <label for="thematic-Religion"><input type="checkbox" id="thematic-Religion" name="thematic[]" value="Religion-related"> Religion-related</label>
+                        <label for="thematic-Other">
+                            <input type="checkbox" id="thematic-Other" onclick="toggle_section(this, 'other-thematic');"> Other
+                        </label>
+                    </div>
+			<br>
+				
+				<div id="other-thematic" style="display:none;">
+				<label>If you selected "Other" above, please specify</label>
+				<input type="text" name="thematic[]" id="other-thematic" value="">
+				</div>
+				
+			<br>
+			
+				<label>Which of the SDG Goals fit into your organisation's work? </label>
+				<p>You may select multiple options</p>
+				
+			<div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 1"> Goal 1: No poverty.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 2"> Goal 2: Zero hunger.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 3"> Goal 3: Good health and well-being.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 4"> Goal 4: Quality education.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 5"> Goal 5: Gender equality.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 6"> Goal 6: Clean water and sanitation.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 7"> Goal 7: Affordable and clean energy.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 8"> Goal 8: Decent work and economic growth.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 9"> Goal 9: Industry, Innovation, and Infrastructure.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 10"> Goal 10: Reduced inequality.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 11"> Goal 11: Sustainable cities and communities.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 12"> Goal 12: Responsible consumption and production.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 13"> Goal 13: Climate action.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 14"> Goal 14: Life below water.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 15"> Goal 15: Life on land.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 16"> Goal 16: Peace, justice, and strong institutions.</label>
+                <label><input type="checkbox" name="org_SDG_goals[]" value="Goal 17"> Goal 17: Partnership for the goals.</label>
+            </div>
+			<br>
+				
+				<label>Name of person completing this application.</label>
+				<input type="text" name="name_of_person_fill_app" id="name-of-person-fill-app" required>
+				
+			<br>
+			
+				<label>Email address of person completing this application.</label>
+				<input type="email" name="email_of_person_fill_app" id="email-of-person-fill-app" required>
+			<br><br>
+				
+				<label>Do you have the authority to represent your organisation?</label>
+				
+				<select name="auth_to_rep_ur_org" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                				
+			<br><br>
+			
+				<label>Number of people DIRECTLY impacted by the work of your organisation annually</label>
+				<p>Please base your number on the actual figures from the last calendar year.</p>
+				<input type="text" name="no_pple_DIRECTLY_impacted" id="no_pple_DIRECTLY_impacted" required >
+			<br>
+				
+				<label>What would you need NNNGO to support you with? </label>
+				<p>You may select multiple answers (max 3)</p>
+				
+				<div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                    <label><input type="checkbox" name="thematic_sup[]" value="Funding Support"> Funding Support</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Policy & Advocacy Support"> Policy & Advocacy Support</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Operational Support"> Operational Support</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Technology Support"> Technology Support</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="HR Support"> HR Support</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Marketing & Communications"> Marketing & Communications</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Knowledge & Resources"> Knowledge & Resources</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Stakeholder Connections"> Stakeholder Connections</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Mentoring and Other Soft Skills"> Mentoring and Other Soft Skills</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Capital"> Capital (Debt, Equity, Philanthropic)</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Financial and Impact Reporting"> Financial and Impact Reporting</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Fundraising Strategy"> Fundraising Strategy</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Grant Writing"> Grant Writing</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Impact Evaluation Metrics"> Impact Evaluation Metrics</label>
+                    <label><input type="checkbox" name="thematic_sup[]" value="Presentation and Decks"> Presentation and Decks</label>
+                </div>
+
+			<br>
+			
+				<label>How did you hear about NNNGO?</label>
+				<select name="hear_abt_nnngo" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Online">Online</option>
+                    <option value="Attended an NNNGO event">Attended an NNNGO event</option>
+                    <option value="Other">Other</option>
+                </select>
+				<!--<label><input type="radio" name="hear_abt_nnngo" value="Referral" required>Referral</label>-->
+    <!--            <label><input type="radio" name="hear_abt_nnngo" value="Online" required>Online</label>-->
+    <!--            <label><input type="radio" name="hear_abt_nnngo" value="Attended an NNNGO event" required>Attended an NNNGO event</label>-->
+    <!--            <label><input type="radio" name="hear_abt_nnngo" value="Other" required" required>Others</label>-->
+                
+    <!--        <br>-->
+            
+    <!--        <div id="other-hear-abt-nnngo" style="display:none;">-->
+				<!--<label>If you selected "Other" above, please specify</label>-->
+				<!--<input type="text" name="hear_abt_nnngo"  >-->
+				<!--</div>-->
+
+			<br><br>
+				
+				<label>What is your preferred mode of communication?</label>
+				<select name="mode_of_comm" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="Email">Email Messaging</option>
+                    <option value="WhatsApp">WhatsApp Messaging</option>
+                    <option value="SMS">Text Messaging</option>
+                    <option value="Phone call">Phone Call</option>
+                </select>
+				<!--<label><input type="radio" name="mode_of_comm" value="Email " required>Email Messaging</label>-->
+    <!--            <label><input type="radio" name="mode_of_comm" value="WhatsApp "  required>WhatsApp Messaging</label>-->
+    <!--            <label><input type="radio" name="mode_of_comm" value="SMS" required>Text Messaging</label>-->
+    <!--            <label><input type="radio" name="mode_of_comm" value="Phone call" required>Phonecall</label>-->
+			</fieldset>	
+			<fieldset>
+                    <legend><h2>Declarations</h2></legend>
+			
+				<label>All members of the Network are expected to behave with integrity and probity and are required as a condition of their membership 
+				to subscribe to the harmonised code of conduct for nonprofits in Nigeria. </label>
+				<p>Please read the Nonprofit Code of Conduct here  <a href="#"><b>The Harmonized Nonprofit Code of Conduct – NNNGO</b></a></p>
+				<label>Declarations</label>
+				<p>Kindly Check ALL to complete the form</p>
+				<label><input type="checkbox" name="dec_thematic[]" value="COC" required>I consent and subscribe to the harmonised code of conduct for nonprofits in Nigeria.</label>
+				<label><input type="checkbox" name="dec_thematic[]" value="I agreed" required>I commit to contribute actively to the mission, vision and values of the Nigeria Network of NGOs with my knowledge, skills, time and networks as needed and as possible.</label>
+				<label><input type="checkbox" name="dec_thematic[]" value="I agreed" required>I understand that the Nigeria Network of NGOs is not a funding organisation. I declare my organisations interest to collaborate with other members in the network and work together to achieve the SDGs.</label>
+				<label><input type="checkbox" name="dec_thematic[]" value="privacy policy" required>I consent to the storage of my the information I have submitted according to the Network's privacy policy</label>
+				<label><input type="checkbox" name="dec_thematic[]" value="Newsletter" required>Sign up to receive the NNNGO Newsletter for updates on network events, upcoming initiatives, our member stories, policy and regulatory updates and our call to actions.</label>
+			<br>
+					<p class="login-submit">
+                <input type="submit" name="wp-submit4" id="wp-submit" class="button-primary" value="Submit">
+				
+			   </p>
+			</fieldset>
+			
+			<!--<fieldset>-->
+                    <!--<legend><h2>Login Details</h2></legend>-->
+	
+    <!--            <label>Username</label>-->
+				<!--<input type="text" name="username" required >-->
+				<!--<br>-->
+				<!--<label>Password</label>-->
+				<!--<input type="password" name="password" required >-->
+				
+			
+			 <!--</fieldset> -->
+			
+		</form>
+		
+		
+		<script>
+		    function toggle_section(what, toggled_section){
+		        if(what.checked == true){
+		            
+		           document.getElementById(toggled_section).style.display = "block";
+		        }else{
+		            document.getElementById(toggled_section).style.display = "none";
+		        }
+		    }
+		</script>
+    
+<?php
+
+    function checkbox_values($data)
+    {
+         $result = [];
+             if(isset($data) && count($data) > 0){
+            
+             foreach($data as $value){
+                 if($value){
+            
+                    $result[] = $value;
+                 }
+            
+            }
+            }
+         $result = $result ? sanitize_text_field(implode(",", $result)) : "";
+         return $result;
+
+    }
+
+    if (isset($_POST['wp-submit4'])){
+    
+    global $wpdb;
+    
+        $categ  = sanitize_text_field($_POST['categ']);
+        $name_org  = sanitize_text_field($_POST['name_org']);
+        $acronym = sanitize_text_field($_POST['acronym']);
+        $org_email =sanitize_text_field($_POST['org_email']);
+        //  if(email-exists($org_email)){
+        //      echo "<script> alert('Error! You have registered with this email before')</script>";
+        //  }
+        
+        $org_p_number = sanitize_text_field($_POST['org_p_number']);
+        $whatsapp_number = sanitize_text_field( $_POST['whatsapp_number']);
+        $name_of_ED = sanitize_text_field( $_POST['name_of_ED']);
+        $ED_email =sanitize_text_field( $_POST['ED_email']);
+        $ED_p_number = sanitize_text_field( $_POST['ED_p_number']);
+        $office_address = sanitize_text_field( $_POST['office_address']);
+        $city = sanitize_text_field( $_POST['city']);
+        $state = sanitize_text_field( $_POST['state']);
+        $geo_p_zone = sanitize_text_field( $_POST['geo_p_zone']);
+        $year_of_est = sanitize_text_field( $_POST['year_of_est']);
+        $short_desc_org = sanitize_text_field( $_POST['short_desc_org']);
+        
+       $registered_with = checkbox_values($_POST['registered_with']);
+         
+      //  $others_reg_with = sanitize_text_field( $_POST['others_reg_with']);
+        $CAC_date_of_incorp = sanitize_text_field( $_POST['CAC_date_of_incorp']);
+        $year_annual_returns = sanitize_text_field( $_POST['year_annual_returns']);
+        $orgs_annual_budget = sanitize_text_field( $_POST['orgs_annual_budget']);
+        $website_facebook_url = sanitize_text_field( $_POST['website_facebook_url']);
+        
+        $org_best_desc =  checkbox_values($_POST['org_best_desc']);
+        
+        $org_board_of_trust  = sanitize_text_field( $_POST['org_board_of_trust']);
+        $org_board_of_trust_funct = sanitize_text_field( $_POST['org_board_of_trust_funct']);
+        
+        $bene_org =  checkbox_values($_POST['bene_org']);
+       
+      //  $bene_org_other_reason = sanitize_text_field( $_POST['bene_org_other_reason']);
+        
+        
+       $thematic =  checkbox_values($_POST['thematic']);
+        
+       // $thematic_other_reason = sanitize_text_field( $_POST['thematic_other_reason']);
+        
+        $org_SDG_goals =  checkbox_values($_POST['org_SDG_goals']);
+        
+        $name_of_person_fill_app = sanitize_text_field( $_POST['name_of_person_fill_app']);
+        $email_of_person_fill_app = sanitize_text_field( $_POST['email_of_person_fill_app']);
+        $auth_to_rep_ur_org = sanitize_text_field( $_POST['auth_to_rep_ur_org']);
+        $no_pple_DIRECTLY_impacted = sanitize_text_field( $_POST['no_pple_DIRECTLY_impacted']);
+        
+       $thematic_sup = checkbox_values($_POST['thematic_sup']);
+         
+        
+        $hear_abt_nnngo = sanitize_text_field( $_POST['hear_abt_nnngo']);
+        $mode_of_comm = sanitize_text_field( $_POST['mode_of_comm']);
+        
+        $dec_thematic = checkbox_values($_POST['dec_thematic']);
+        
+        // $username = sanitize_text_field( $_POST['username']);
+        // $password = sanitize_text_field( $_POST['password']);
+        
+        
+        // $email_exists = $wpdb->get_var($wpdb->prepare(
+        // "SELECT COUNT(*) FROM sign_up WHERE org_email = $org_email" 
+        // // $email
+        // ));
+        
+         $result = $wpdb-> get_results("SELECT id FROM sign_up WHERE org_email='$org_email'" , ARRAY_A);
+    if(count($result) > 0){
+        echo "<script> alert('Error! You have registered with this email before')</script>";
+        
+        
+    // If the email already exists, display an error message
+    // if ($email_exists > 0) {
+    //     echo "<script> alert('Error! You have registered with this email before')</script>";
+        
+       
+        // $result = $wpdb->get_results("SELECT id FROM Sign-up WHERE org_email='$org_email'" , ARRAY_A);
+        // print_r($result);
+        //     if(count($result) > 0){
+        //         echo "<script> alert('Error! You have registered with this email before')</script>";
+                
+        //     }
+    }
+            else{
+    
+        
+    // Define the table name
+    $sql = $wpdb->insert( "sign_up", array(
+                    
+                    "categ" => $categ,
+                    "name_org" => $name_org,
+                    "acronym" => $acronym,
+                    "org_email" => $org_email,
+                    "org_p_number" => $org_p_number,
+                    "whatsapp_number" => $whatsapp_number,
+                    "name_of_ED" => $name_of_ED,
+                    "ED_email" => $ED_email,
+                    "ED_p_number" => $ED_p_number,
+                    "office_address" => $office_address,
+                    "city" => $city,
+                    "state" => $state,
+                    "geo_p_zone" => $geo_p_zone,
+                    "year_of_est" => $year_of_est,
+                    "short_desc_org" => $short_desc_org,
+                    "registered_with" => $registered_with,
+                    
+                   // "others_reg_with" => $others_reg_with,
+                    "CAC_date_of_incorp" => $CAC_date_of_incorp,
+                    "year_annual_returns" => $year_annual_returns,
+                    "orgs_annual_budget" => $orgs_annual_budget,
+                    "website_facebook_url" => $website_facebook_url,
+                    "org_best_desc" => $org_best_desc,
+                    
+                    "org_board_of_trust" => $org_board_of_trust,
+                    "org_board_of_trust_funct" => $org_board_of_trust_funct,
+                    
+                    "bene_org" => $bene_org,
+                   
+                  //  "bene_org_other_reason" => $bene_org_other_reason,
+                    "thematic" => $thematic,
+                    
+                   // "thematic_other_reason" => $thematic_other_reason,
+                   "org_SDG_goals" => $org_SDG_goals,
+                    
+                    "name_of_person_fill_app" => $name_of_person_fill_app,
+                    "email_of_person_fill_app" => $email_of_person_fill_app,
+                    "auth_to_rep_ur_org" => $auth_to_rep_ur_org,
+                    "no_pple_DIRECTLY_impacted" => $no_pple_DIRECTLY_impacted,
+                    "thematic_sup" => $thematic_sup,
+                    
+                    "hear_abt_nnngo" => $hear_abt_nnngo,
+                    "mode_of_comm" => $mode_of_comm,
+                    "dec_thematic" => $dec_thematic
+                    // "username" => $username,
+                    // "password" => $password
+                    ));
+    
+    if ($sql == true) {
+        echo "<script> alert('Form Submitted!, Please message the membership manage at the waiting room')</script>";
+        echo "<script>window.location = '".site_url('/Sign-up-Waiting-Room')."'</script>";
+    } else {
+        echo "<script> alert('Error! Data Insert failed')</script>";
+    }
+    
+    }
+   
+   
+}
+    
+    
+    // $data = array(
+    //     'member_categ' => $member_categ,
+    //     'name_org' => $name_org,
+    //     'acronym' => $acronym,
+    //     'org_email' => $org_email,
+    //     'org_p_number' => $org_p_number,
+    //     'whatsapp_number' => $whatsapp_number,
+    //     'name_of_ED' => $name_of_ED,
+    //     'ED_email' => $ED_email,
+    //     'ED_p_number' => $ED_p_number,
+    //     'office_address' => $office_address,
+    //     'city' => $city,
+    //     'state' => $state,
+    //     'geo_p_zone' => $geo_p_zone,
+    //     'year_of_est' => $year_of_est,
+    //     'short_desc_org' => $short_desc_org,
+    //     'registered_with' => $registered_with,
+        
+    //     'others_reg_with' => $others_reg_with,
+    //     'CAC_date_of_incorp' => $CAC_date_of_incorp,
+    //     'year_annual_returns' => $year_annual_returns,
+    //     'orgs_annual_budget' => $orgs_annual_budget,
+    //     'website_facebook_url' => $website_facebook_url,
+    //     'org_best_desc' => $org_best_desc,
+        
+    //     'bene_org' => $bene_org,
+       
+    //     'bene_org_other_reason' => $bene_org_other_reason,
+    //     'thematic' => $thematic,
+        
+    //     'thematic_other_reason' => $thematic_other_reason,
+    //     'org_SDG_goals' => $org_SDG_goals,
+        
+    //     'name_of_person_fill_app' => $name_of_person_fill_app,
+    //     'email_of_person_fill_app' => $email_of_person_fill_app,
+    //     'auth_to_rep_ur_org' => $auth_to_rep_ur_org,
+    //     'no_pple_DIRECTLY_impacted' => $no_pple_DIRECTLY_impacted,
+    //     'thematic_sup' => $thematic_sup,
+        
+    //     'hear_abt_nnngo' => $hear_abt_nnngo,
+    //     'mode_of_comm' => $mode_of_comm,
+    //     'dec_thematic' => $dec_thematic,
+        
+    //     );
+        
+    //     $table = 'Sign-up';
+        
+    //     $result = $wpdb -> insert($table, $data, $format=NULL);
+        
+    //     if($rowResult == 1){
+    //         echo  "<script>window.location = '".site_url('/membership-only')."'</script>";
+            
+    //     }else{
+    //       // echo "<script>";
+    //              echo " alert('Invalid Credentials! , try again!');      
+    //                 window.location.href='".site_url('')."';
+    //       // </script>";
+            
+    //     }
+            
+    //     }
+    
+
+     get_footer();
+?>
