@@ -1,0 +1,19 @@
+
+    // Define old PDFs and their new URLs
+    $redirects = [
+          // 'old url' => 'new url'
+        '/wp-content/uploads/2022/05/CIVIL-SOCIETY-REGULATORY-FRAMEWORKS-IN-NIGERIA.pdf' => 'https://nnngo.org/wp-content/uploads/dlm_uploads/2024/04/CIVIL-SOCIETY-REGULATORY-FRAMEWORKS-IN-NIGERIA.pdf',
+        '/wp-content/uploads/2020/06/Impact-on-Covid19.pdf' => 'https://nnngo.org/wp-content/uploads/dlm_uploads/2024/04/Impact-on-Covid19-1.pdf',
+        '/wp-content/uploads/2019/12/Strategic-Plan-Compressed-1.pdf' => 'https://nnngo.org/wp-content/uploads/2024/03/NNNGO-Strategic-Plan-Compressed-1.pdf',
+        '/wp-content/uploads/2020/11/civil-society-spending-on-covid-19.pdf' => 'https://nnngo.org/wp-content/uploads/dlm_uploads/2024/04/civil-society-spending-on-covid-19.pdf',
+    ];
+
+    // Get the requested URL path
+    $current_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    // Check if the requested PDF is in the redirect list
+    if (isset($redirects[$current_path])) {
+        wp_redirect($redirects[$current_path], 301); // 301 = permanent redirect
+        exit;
+    }
+}
