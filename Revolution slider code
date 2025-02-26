@@ -1,0 +1,181 @@
+
+//create custom slider
+// Function to create Auto-Revolving Revolution Slider
+// Function to create Auto-Revolving Revolution Slider
+function auto_revolution_slider() {
+    ob_start(); ?>
+
+    <!-- Auto-Revolving Revolution Slider -->
+    <div class="auto-rev-slider">
+        <div class="auto-rev-slider-container">
+            <div class="auto-rev-slide">
+                <img src="https://nnngo.org/wp-content/uploads/2025/02/banner-slid-02.jpg" alt="Slide 1">
+                <div class="auto-rev-caption">
+                    <h2>Welcome to NNNGOs</h2>
+                    <p>The Nigeria Network of NGOs (NNNGO) is the first generic <br>membership body for civil society organisations in Nigeria.</p>
+                    <a href="https://nnngo.org/who-we-are/" class="auto-rev-btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="auto-rev-slide">
+                <img src="https://nnngo.org/wp-content/uploads/2025/02/banner-slid-01.jpg" alt="Slide 2">
+                <div class="auto-rev-caption">
+                    <h2>100 Most Influential CSO </h2>
+                    <p>The Most Influential Civil Society Leaders in Nigeria</p>
+                    <a href="https://nnngo.org/programs" class="auto-rev-btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="auto-rev-slide">
+                <img src="https://nnngo.org/wp-content/uploads/2025/02/banner-slid-03.jpg" alt="Slide 3">
+                <div class="auto-rev-caption">
+                    <h2>Advancing Civil Society</h2>
+                    <p>Learn about our work in strengthening advocacy.</p>
+                    <a href="https://nnngo.org/advocacy" class="auto-rev-btn">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="auto-rev-prev" onclick="moveAutoRevSlide(-1)">&#10094;</button>
+        <button class="auto-rev-next" onclick="moveAutoRevSlide(1)">&#10095;</button>
+
+        <!-- Navigation Dots 
+        <div class="auto-rev-dots"></div>-->
+    </div>
+
+    <!-- Inline CSS -->
+    <style>
+        .auto-rev-slider {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .auto-rev-slider-container {
+            display: flex;
+            width: 300%;
+            transition: transform 1s ease-in-out;
+        }
+        .auto-rev-slide {
+            width: 33.33%;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .auto-rev-slide img {
+            width: 100%;
+            display: block;
+        }
+        .auto-rev-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            color: white;
+            border-radius: 5px;
+        }
+        .auto-rev-caption h2 {
+            margin: 0;
+            font-size: 32px;
+			color: white;
+        }
+        .auto-rev-caption p {
+            margin: 5px 0;
+            font-size: 20px;
+        }
+        .auto-rev-btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background: #D12C35;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+		.auto-rev-btn:hover {
+			background-color: white; /* Change background color */
+			color: #D12C35; /* Change text color */
+			border: 0.5px solid #D12C35; /* Optional: Add a border */
+		}
+		 .auto-rev-prev, .auto-rev-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .auto-rev-prev { left: 10px; }
+        .auto-rev-next { right: 10px; }
+        .auto-rev-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .auto-rev-dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            display: inline-block;
+            background: gray;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .auto-rev-dot.active {
+            background: white;
+        }
+    </style>
+
+    <!-- Inline JavaScript -->
+    <script>
+        let autoRevIndex = 0;
+        let totalAutoSlides = document.querySelectorAll('.auto-rev-slide').length;
+        const autoRevContainer = document.querySelector('.auto-rev-slider-container');
+        const autoRevDotsContainer = document.querySelector('.auto-rev-dots');
+
+        // Generate dots
+        for (let i = 0; i < totalAutoSlides; i++) {
+            let dot = document.createElement('span');
+            dot.classList.add('auto-rev-dot');
+            dot.setAttribute('onclick', `goToAutoRevSlide(${i})`);
+            autoRevDotsContainer.appendChild(dot);
+        }
+        updateAutoRevDots();
+
+        function moveAutoRevSlide(step) {
+            autoRevIndex += step;
+            if (autoRevIndex < 0) {
+                autoRevIndex = totalAutoSlides - 1;
+            } else if (autoRevIndex >= totalAutoSlides) {
+                autoRevIndex = 0;
+            }
+            autoRevContainer.style.transform = `translateX(-${autoRevIndex * 33.33}%)`;
+            updateAutoRevDots();
+        }
+
+        function goToAutoRevSlide(index) {
+            autoRevIndex = index;
+            autoRevContainer.style.transform = `translateX(-${autoRevIndex * 33.33}%)`;
+            updateAutoRevDots();
+        }
+
+        function updateAutoRevDots() {
+            document.querySelectorAll('.auto-rev-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === autoRevIndex);
+            });
+        }
+
+        // Auto-Revolving every 25 seconds
+        setInterval(() => {
+            moveAutoRevSlide(1);
+        }, 15000);
+    </script>
+
+    <?php return ob_get_clean();
+}
+add_shortcode('auto_revolution_slider', 'auto_revolution_slider');
